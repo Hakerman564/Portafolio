@@ -25,7 +25,7 @@ html, body {
     height: 100%;
     margin: 0;
     padding: 0;
-    background-color: var(--color-fondo);
+ 
 }
 
 span{
@@ -38,7 +38,6 @@ body{
 }
 
 h1,h2{
-    color: var(--color-texto);
     text-transform: uppercase;
     text-align: center;
     line-height: 1;
@@ -46,18 +45,23 @@ h1,h2{
   
 }
 
+h3,h4,h5,h6{
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
+
 p{
     text-align: justify;
     line-height: 1.5;
     margin: 0 5px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size: 1.2em;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1rem;
 }
 .principal{
-    height: 200%;
+    height: 175%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-image: url('img/4940019.jpg');
 }
 
 .principal > div {
@@ -69,23 +73,26 @@ p{
 
 .png {
     position: relative;
-    flex-grow: 2;
+    flex: 0 0 20%; /* 20% de alto del padre, no crece ni se reduce */
 }
 
 .pie{
-   flex-grow: 1;
+   flex: 0 0 15%; /* 15% de alto del padre */
    display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    background-color: #263846;
+    color: white;
 }
 
 .contenido{
-    flex-grow: 6;
+    flex: 0 0 65%; /* 65% de alto del padre */
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    gap: 2px;
 }
 
 .perfil {
@@ -99,17 +106,12 @@ p{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    border: 1px solid var(--color-primario);
-    background-color: var(--color-blanco);
-    box-shadow: #0D0D3B 0px 2px 8px rgba(0,0,0,0.173);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.173);
 }
 
 /*Bloque del perfil*/
 
-.perfil > div {
-   
-    
-}
+
 
 .foto-perfil {
     flex: 0 0 20%; /* 1/4 parte */
@@ -152,9 +154,13 @@ p{
 
 
 .contenido > section {
-    
-    flex-grow: 1;
+    flex: 1 1 0;
     height: 100%;
+    background: rgba(200, 200, 200, 0.07); /* Gris translúcido */
+    backdrop-filter: blur(3px);           /* Desenfoque */
+    -webkit-backdrop-filter: blur(3px);   /* Compatibilidad Safari */
+     border-radius: 10px;
+     border: 1px solid rgba(200,200,200,0.4);
 }
 
 /*Skill*/
@@ -165,24 +171,129 @@ p{
     flex-direction: column;
     justify-content: center;
     align-items: center;  
+   
+    
 }
 
 .skills > div {
-    
+    max-width: 100%;
     width: 100%;
+    box-sizing: border-box;
 }
 
-.Tegnologias {
-    flex: 0 0 30% ;
+.title{
+    flex: 0 0 8%
 }
+.Tegnologias {
+    
+    padding: 10px;
+    display: flex;
+    flex: 0 0 15% ;
+    gap: 5px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    justify-content:center;
+    
+}
+
 .Habilidades {
     flex: 1 1 0; /* ocupa el espacio restante */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: self-start;
+    padding: 10px;
+    
 }
 .Blandas{
     flex: 0 0 20%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    align-content: flex-start;
+    padding: 10px;
+    gap: 5px;
 }
 
 
+.icon{
+    width: 50px;
+    height: auto;
+    padding: 3px;
+}
+
+/*color iconos*/
+
+.HTML5
+{
+    filter: brightness(0) saturate(100%) invert(50%) sepia(96%) saturate(4649%) hue-rotate(350deg) brightness(95%) contrast(87%);
+}
+
+
+
+.CCS
+{
+  filter: brightness(0) saturate(100%) invert(25%) sepia(100%) saturate(682%) hue-rotate(236deg) brightness(89%) contrast(103%);
+}
+
+.JavaScript
+{
+    filter: brightness(0) saturate(100%) invert(77%) sepia(90%) saturate(440%) hue-rotate(349deg) brightness(103%) contrast(103%);
+}
+
+.git
+{
+    filter: brightness(0) saturate(100%) invert(37%) sepia(58%) saturate(1828%) hue-rotate(341deg) brightness(97%) contrast(94%);
+}
+
+.net {
+    filter: brightness(0) saturate(100%) invert(27%) sepia(97%) saturate(7186%) hue-rotate(255deg) brightness(85%) contrast(95%);
+}
+
+.vscode
+{
+    filter: brightness(0) saturate(100%) invert(59%) sepia(31%) saturate(3916%) hue-rotate(170deg) brightness(98%) contrast(93%);
+}
+
+.ghub{
+    filter: brightness(0) saturate(100%) invert(4%) sepia(5%) saturate(591%) hue-rotate(314deg) brightness(99%) contrast(89%);
+}
+
+.msql{
+    filter: brightness(0) saturate(100%) invert(46%) sepia(19%) saturate(1133%) hue-rotate(163deg) brightness(91%) contrast(93%);
+}
+
+.openA{
+    filter: brightness(0) saturate(100%) invert(75%) sepia(12%) saturate(5193%) hue-rotate(45deg) brightness(85%) contrast(60%);
+}
+
+/*habilidades tegnicas bloques*/
+
+.skill {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    gap: 5px;
+    margin: 5px;
+    border-radius: 5px;
+
+    border:#ededed 2px solid;
+    background-color: #f5f5f5;
+    box-shadow: 1px 1px 2px rgba(0,0,0,0.173);
+}
+
+/*habilidades blanda bloque*/
+
+.soft-skill-block{
+    color: #1b1e21;
+    background-color: #d6d8d9;
+    border: 1px solid #c6c8ca;
+}
 /*eduacion*/
 
 .Educacion {
@@ -190,6 +301,7 @@ p{
     flex-direction: column;
     justify-content: center;
     align-items: center;  
+    
 }
 
 .Educacion > div {
@@ -199,10 +311,107 @@ p{
 
 .Educacion-Formal {
     flex: 1 1 0;
+    padding: 8px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
 }
 
 .Certificaciones {
-    flex: 0 0 20%; /* ocupa el espacio restante */
+    flex: 0 0 60%; /* ocupa el espacio restante */
+}
+
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background-color: black;
+    border: 1px solid black;
+    left: 70px;
+}
+
+.timeline {
+    list-style: none;
+    text-align: left;
+    padding-left: 20px;
+    margin-left: 10px;
+    border-left: 3px solid black;
+   
+}
+
+.timeline::after{   
+    content: '';
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background-color: black;
+    border: 1px solid black;
+    left: 70px;
+    top: 325px;
+}
+
+.timeline li {
+    position: relative;
+    padding: 10px 0;
+    margin-left: 20px;
+    margin-bottom: 10px;
+}
+
+.timeline li h4 {
+    margin: 0;
+    font-weight: bold;
+}
+
+.timeline li::before{
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background-color: black;
+    border-radius: 50%;
+    left: -45px;
+    top: 19px;
+}
+
+.timeline li::after{
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 3px;
+    background-color: black;
+    left: -40px;
+    top: 21px;
+}
+
+.timeline span {
+    font-size: 1rem;
+    font-weight: normal;
+}
+
+
+/*Certifaciones*/
+    
+.Certificanes-list{
+     display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: self-start;
+    flex-wrap: wrap;
+    padding: 20px;
+    gap: 20px;
+}
+
+.block-certificaciones {
+  width: 150px;
+  height: 150px;
+  box-shadow: 1px 1px 3px rgba(0,0,0,0.173);
+  
+}
+
+.certf{
+    width: 100%;
 }
 
 /* proyectos*/
@@ -219,12 +428,55 @@ p{
     width: 100%;
 }
 
-.p-academicos{
+.p-acad{
     flex: 0 0 35%;
 }
 
-.p-profesional{
+.p-pro{
     flex: 1 1 0; /* ocupa el espacio restante */
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-content: start ;
+    align-items: center;
+    padding: 20px;
+}
+
+/*contenido de proyecto*/
+
+.Project{
+    display: flex;
+    flex-direction: column;
+    height: 300px;
+    border-radius:7px;
+}
+
+.iframe-falso{
+    background-color: black;
+    flex: 2 2 0;
+    border-radius: 7px 7px 0px 0px;
+}
+
+.project-block{
+  flex: 0 0 75% ;
+  display: flex;
+  flex-direction: column;
+  border-radius: 7px 7px 0px 0px;  
+}
+
+
+.title-proyect{
+    flex: 1 1 0 ;
+    margin: 0 0;
+}
+
+.info-proyect{
+    background: #8d6b7c;
+    margin: 0 0;
+    padding: 2px;
+    flex: 1 1 0;
+    overflow-y: hidden;
 }
 
 /*Contenido del pie de pagina*/
@@ -235,4 +487,23 @@ p{
     margin: 0;
     text-align: center;
     flex-grow: 1;
+}
+
+.build {
+    border: 1px solid gray;
+    box-shadow: 1px 1px 3px black;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.pie {
+    width: 100% !important;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    
 }
