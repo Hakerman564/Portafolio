@@ -8,26 +8,32 @@ h1,h2,h3,h4,h5,h6,h7,h8{
     word-spacing: -1%;
 }
 
-/**/
 
-p{
-    font-size: 1em;
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/*Desktop Nolmal media*/
 
 body, html{
     width: 100%;
-    margin: 0 0 ;
+    margin: 0;
+    padding: 0;
+    height: 100%;
     font-family: 'Source Sans Pro', sans-serif;
     color: #3d3838;
-    line-height: 1.5 ;
+    
 }
 
+/*media 1400px*/
 
 .step1,.step2,.step3,.step4,.step5,.step6,.step7{
     width: 100%;
-    height: 500px;  
+    height: 500px; 
+    margin: 0px 0px ;
+    padding: 0px 0px; 
+    
 }
 
 .step1{
@@ -53,3 +59,100 @@ body, html{
 .step7{
     background-color: #2d2e34;
 }
+
+/*---------------------- step1 --------------------------------*/
+
+nav > ul > li{
+    list-style: none;
+    display: inline;
+
+}
+
+li > a{
+    text-decoration: none;
+    color: #3d3838;
+    font-weight: bold;
+    border-right: 2px solid #3d3838;
+    font-size: 1.2em;
+    padding: 0px 10px;
+}
+
+nav ul li:last-child a {
+    border: none;
+}
+
+.step1{
+    display: flex;
+    flex-direction: row; /* Estaba column, lo cambiamos a row */
+    align-items: center; /* Alinea verticalmente */
+    justify-content: center; /* Separa los elementos */
+    background-color: white;
+}
+
+.seccion-perfil {
+    flex-basis: 62% ;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.avatar-imagen {
+    flex-basis: 38%;
+    height: 100%; /* o una altura fija, ej: 500px */
+    width: 100%;
+    display: flex;
+    align-items: stretch; /* estira su contenido verticalmente */
+    justify-content: center;
+    overflow: hidden; /* evita que sobresalga */
+}
+
+
+div > img{
+     width: 100%;     /* que use todo el ancho disponible */
+    height: 100%;    /* que use todo el alto disponible */
+    object-fit: cover; /* rellena el espacio aunque recorte */
+    object-position: center; /* centra el recorte */
+}
+
+.texto-titilo h1 {
+    font-size: 2.5em; /* entre 36px y 40px aprox. */
+    font-weight: bold;
+    margin-bottom: 0.5em;
+}
+
+.texto-titilo p {
+    font-size: 1.2em; /* entre 18px y 20px */
+    line-height: 1.6;
+    max-width: 800px; /* evita que se alargue mucho en pantalla ancha */
+}
+
+.botones{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap:10px;
+    margin-left: 90px;
+}
+
+.IrProctos{
+    border: none;
+    padding: 10px 5px;
+    width: 150px;
+    background-color: #2d2e34;
+    color: white;
+    font-size: 1em;
+}
+
+.btContacto{
+    border: 2px solid #2d2e34;
+    padding: 10px 5px;
+    width: 150px;
+    background-color: white;
+    font-size: 1em;
+}
+
+
+/*-------------------------------------------------------------*/
