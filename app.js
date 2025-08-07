@@ -29,7 +29,7 @@ Personalizacion = {
         github: "icon/github.svg",
         api: "icon/openapiinitiative.svg",
         mysql: "icon/mysql.svg",
-        sqlserver: "icon/icons8-servidor-microsoft-sql-50"
+        sqlserver: "icon/icons8-servidor-microsoft-sql-50.svg"
     },
 
     Habilidades_Rol: {
@@ -127,3 +127,26 @@ Personalizacion = {
 
 
 }
+
+
+/* Elementos traidos Del Dom*/
+
+const tituloSetp2 = document.querySelector('.step2')
+
+const Herramientas = tituloSetp2.children[2]
+
+const iconoHerramientas = Personalizacion.habilidadClaves
+
+const clave = Object.keys(iconoHerramientas);
+const valores = Object.values(iconoHerramientas)
+
+console.log(valores)
+console.log(Herramientas)
+
+valores.forEach(element => {
+    const img = document.createElement('img')
+    img.src = element;
+    img.alt = 'Herramienta'
+    img.className = 'icon-tecn'
+    Herramientas.appendChild(img);
+});
