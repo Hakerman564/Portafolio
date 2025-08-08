@@ -34,12 +34,28 @@ Personalizacion = {
 
     Habilidades_Rol: {
         encabezado: "Capacidades de Desarrollo FullStack",
+
         habilidad: {
-            Maquetacion: "Diseño y maquetacion css",
-            RestApi: "Desarrollo Rapido con Rest Api y Open-api",
-            Responsive: "Diseño web responsivo",
-            BaseDatos: "Diseño y gestion de base de datos",
-            Integracion: "Integracion Frontend-Backend"
+            Maquetacion: {
+                Principal: "Diseño y maquetacion css",
+                Descripccion: "Aplicación de estilos y estructura visual para páginas web usando CSS moderno."
+            },
+            RestApi: {
+                Principal: "Desarrollo Rapido con Rest Api y Open-api",
+                Descripccion: "Creación y consumo de APIs RESTful para conectar el frontend y backend de aplicaciones."
+            },
+            Responsive: {
+                Principal: "Diseño web responsivo",
+                Descripccion: "Adaptación de interfaces para que funcionen correctamente en cualquier dispositivo."
+            },
+            BaseDatos: {
+                Principal: "Diseño y gestion de base de datos",
+                Descripccion: "Modelado y administración de bases de datos relacionales y no relacionales."
+            },
+            Integracion: {
+                Principal: "Integracion Frontend-Backend",
+                Descripccion: "Conexión eficiente entre la interfaz de usuario y la lógica del servidor."
+            }
         }
 
     },
@@ -53,28 +69,28 @@ Personalizacion = {
 
         },
 
-          AutoDidacta: {
+        AutoDidacta: {
             encabezado: "autoDidacta",
             icon_url: "",
             contedio: "",
 
         },
 
-          MejoraContinua: {
+        MejoraContinua: {
             encabezado: "Mejora Continua",
             icon_url: "",
             contedio: "",
 
         },
 
-          TrabajoEquipo: {
+        TrabajoEquipo: {
             encabezado: "Trabajo en equipo",
             icon_url: "",
             contedio: "",
 
         },
 
-     
+
 
     },
 
@@ -88,17 +104,17 @@ Personalizacion = {
             Titulo: "Tecnico Profecional En desarrollo Software",
             Estatus: "Terminado"
         },
-         UCSD:
+        UCSD:
         {
             Nombre: "Universidad católica de Santo Domingo",
             Acronimo: "UCSD",
-            Temporada: {inicio: 2023},
+            Temporada: { inicio: 2023 },
             Titulo: "TIngenieria en sistemas Computacionales",
             Estatus: "Tesis"
         },
 
-        BIA:{
-             Nombre: "Telengin",
+        BIA: {
+            Nombre: "Telengin",
             Acronimo: "Bia",
             Temporada: "2024-2025",
             Titulo: "Boostcamp en Inteligencia Artificial Generativa",
@@ -110,18 +126,18 @@ Personalizacion = {
         Htlm5Url: ""
     },
 
-    Proyectos:{
-        Contenido :"Explora algunos de mis trabajos más relevantes, donde aplico mis habilidades para resolver problemas y crear soluciones innovadoras.",
-        GrandesProyecto:{
-            P1:{
-                encabezado:"",
+    Proyectos: {
+        Contenido: "Explora algunos de mis trabajos más relevantes, donde aplico mis habilidades para resolver problemas y crear soluciones innovadoras.",
+        GrandesProyecto: {
+            P1: {
+                encabezado: "",
                 contenido: "",
                 link: "",
             }
         }
     },
 
-    miniProyectos:{
+    miniProyectos: {
         p1Url: ""
     }
 
@@ -140,8 +156,7 @@ const iconoHerramientas = Personalizacion.habilidadClaves
 const clave = Object.keys(iconoHerramientas);
 const valores = Object.values(iconoHerramientas)
 
-console.log(valores)
-console.log(Herramientas)
+
 
 valores.forEach(element => {
     const img = document.createElement('img')
@@ -149,4 +164,33 @@ valores.forEach(element => {
     img.alt = 'Herramienta'
     img.className = 'icon-tecn'
     Herramientas.appendChild(img);
+});
+
+/* step 3*/
+
+const step3 = document.querySelector('.step3')
+const tituloH1 = step3.children[0]
+const contenedorHabilidad = step3.children[1]
+const Habilidades_Rol = Personalizacion.Habilidades_Rol.habilidad
+
+const Conjuntos_Rol = Object.entries(Habilidades_Rol)
+
+tituloH1.innerHTML = Personalizacion.Habilidades_Rol.encabezado
+
+
+Conjuntos_Rol.forEach(element => {
+    console.log(element)
+    const bloque = document.createElement('div');
+    const subEncabezado = document.createElement('h3')
+    const texto = document.createElement('p')
+    // propiedad de bloque
+    bloque.className = 'block-rol'
+
+    subEncabezado.innerText = element[1].Principal
+    texto.innerText = element[1].Descripccion
+
+    bloque.appendChild(subEncabezado)
+    bloque.appendChild(texto)
+
+    contenedorHabilidad.appendChild(bloque)
 });
