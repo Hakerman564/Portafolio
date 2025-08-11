@@ -14,9 +14,14 @@ h1 {
     margin-bottom: 0.5em;
 }
 
+h3{
+    font-size: 1.4em;
+    padding-bottom: 20px;
+}
+
 p {
-    font-size: 1.2em; /* entre 18px y 20px */
-    line-height: 1.6;
+    font-size: 1.1em; /* entre 18px y 20px */
+    line-height: 1.2;
     max-width: 800px; /* evita que se alargue mucho en pantalla ancha */
 }
 
@@ -206,6 +211,7 @@ div > img{
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
+    border: 2px solid transparent;
 }
 
 .habilidades-tecnicas{
@@ -213,11 +219,24 @@ div > img{
     display: flex;
     flex-direction: row;
     justify-content: center;
-    gap: 10px;
+    gap: 30px;
     flex-wrap: wrap;
+    align-items: first baseline;
+}
+
+.step3:hover{
+    border: 2px solid gainsboro ; 
 }
 
 .block-rol{
-    width: 150px;
+    width: 230px;
 }
 /*-------------------------------------------------------------*/
+
+/*---------------------- step3 --------------------------------*/
+
+/*-------------------------------------------------------------*/
+
+
+
+

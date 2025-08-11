@@ -37,19 +37,19 @@ Personalizacion = {
 
         habilidad: {
             Maquetacion: {
-                Principal: "Diseño y maquetacion css",
+                Principal: "Maquetacion css",
                 Descripccion: "Aplicación de estilos y estructura visual para páginas web usando CSS moderno."
             },
             RestApi: {
-                Principal: "Desarrollo Rapido con Rest Api y Open-api",
+                Principal: "Desarrollo con Rest Api y Open-api",
                 Descripccion: "Creación y consumo de APIs RESTful para conectar el frontend y backend de aplicaciones."
             },
             Responsive: {
-                Principal: "Diseño web responsivo",
+                Principal: "Web responsivo",
                 Descripccion: "Adaptación de interfaces para que funcionen correctamente en cualquier dispositivo."
             },
             BaseDatos: {
-                Principal: "Diseño y gestion de base de datos",
+                Principal: "gestion de base de datos",
                 Descripccion: "Modelado y administración de bases de datos relacionales y no relacionales."
             },
             Integracion: {
@@ -64,29 +64,29 @@ Personalizacion = {
 
         PensamientoCritico: {
             encabezado: "Pensamiento critico",
-            icon_url: "",
-            contedio: "",
+            icon_url: "icon/usobajo/cachet.svg",
+            contedio: "Capacidad para analizar problemas complejos y proponer soluciones efectivas. Ejemplo: identificar errores en código y optimizar procesos.",
 
         },
 
         AutoDidacta: {
             encabezado: "autoDidacta",
-            icon_url: "",
-            contedio: "",
+            icon_url: "icon/usobajo/cachet.svg",
+            contedio: "Aprendizaje autónomo de nuevas tecnologías y herramientas. Ejemplo: dominar frameworks modernos por cuenta propia.",
 
         },
 
         MejoraContinua: {
             encabezado: "Mejora Continua",
-            icon_url: "",
-            contedio: "",
+            icon_url: "icon/usobajo/cachet.svg",
+            contedio: "Búsqueda constante de optimización y actualización profesional. Ejemplo: refactorizar código y aplicar buenas prácticas.",
 
         },
 
         TrabajoEquipo: {
             encabezado: "Trabajo en equipo",
-            icon_url: "",
-            contedio: "",
+            icon_url: "icon/usobajo/cachet.svg",
+            contedio: "Colaboración efectiva con otros desarrolladores y áreas. Ejemplo: participar en proyectos grupales y compartir conocimientos.",
 
         },
 
