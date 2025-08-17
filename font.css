@@ -12,9 +12,9 @@
 /* Source Sans Pro Regular */
 @font-face {
   font-family: 'Source Sans Pro';
-  src: url('font/source-sans-pro/SourceSansPro-Regular.woff2') format('woff2'),
-       url('font/source-sans-pro/SourceSansPro-Regular.woff') format('woff'),
-       url('font/source-sans-pro/SourceSansPro-Regular.ttf') format('truetype');
+  src: url('font/sourceSanspPro/SourceSansPro-Regular.woff2') format('woff2'),
+       url('font/sourceSanspPro/SourceSansPro-Regular.woff') format('woff'),
+       url('sourceSanspPro/SourceSansPro-Regular.ttf') format('truetype');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
