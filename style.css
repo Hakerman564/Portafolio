@@ -2,9 +2,9 @@
 
 /*Fuentes Cabezera*/
 h1,h2,h3,h4,h5,h6,h7,h8{
-    font-family: 'Montserrat' sans-serif ;
+    font-family: 'Montserrat', sans-serif ;
     line-height: 1.25;
-    word-spacing: -1%;
+    word-spacing: 2px;
 }
 
 h1 {
@@ -20,8 +20,8 @@ h3{
 }
 
 p {
-    font-size: 1em; /* entre 18px y 20px */
-    line-height: 1.2;
+    font-size: 1.3em; /* entre 18px y 20px */
+    line-height: 1.1;
     max-width: 800px; /* evita que se alargue mucho en pantalla ancha */
 }
 
