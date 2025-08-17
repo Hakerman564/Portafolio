@@ -194,3 +194,6 @@ Conjuntos_Rol.forEach(element => {
 
     contenedorHabilidad.appendChild(bloque)
 });
+
+// setp 4
+
