@@ -1,296 +1,373 @@
 @import url('font.css');
 
-/*Fuentes Cabezera*/
-h1,h2,h3,h4,h5,h6,h7,h8{
-    font-family: 'Montserrat', sans-serif ;
+/* ================================
+   VARIABLES GLOBALES
+================================ */
+:root {
+
+    /* --- Breakpoints (puedes editarlos libremente) --- */
+    --bp-miDesktop: 1400px;
+    --bp-desktop: 1200px;
+    --bp-tablet: 768px;
+    --bp-phone: 480px;
+
+    /* --- Colores globales --- */
+    --color-dark: #2d2e34;
+    --color-text: #3d3838;
+    --color-bg-light: #ffffff;
+    --color-bg-gray: #f2f2f2;
+
+    /* --- Tipografías / tamaños --- */
+    --font-title-big: 2.8em;
+    --font-title-medium: 1.4em;
+    --font-text: 1.3em;
+
+    /* --- Layout / Medidas globales --- */
+    --page-max-width: 1463px;
+    /* ancho base de tu pantalla */
+    --section-height: 778px;
+    /* altura estándar */
+    --section-height-lg: 1200px;
+    /* altura para step5 */
+    --avatar-height: 100%;
+    /* altura del avatar */
+    --padding-global: 150px;
+    /* padding base de secciones */
+    --padding-small: 120px;
+    /* padding usado en step1 */
+
+    /* --- Otros --- */
+    --step-border-hover: gainsboro;
+}
+
+
+/* ================================
+   RESETEO Y BASE
+================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body,
+html {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Source Sans Pro', sans-serif;
+    color: var(--color-text);
+}
+
+/* Fuentes para encabezados */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Montserrat', sans-serif;
     line-height: 1.25;
     word-spacing: 2px;
 }
 
 h1 {
     color: black;
-    font-size: 2.5em; /* entre 36px y 40px aprox. */
+    font-size: var(--font-title-big);
     font-weight: bold;
     margin-bottom: 0.5em;
 }
 
-h3{
-    font-size: 1.4em;
+h3 {
+    font-size: var(--font-title-medium);
     padding-bottom: 20px;
 }
 
 p {
-    font-size: 1.3em; /* entre 18px y 20px */
+    font-size: var(--font-text);
     line-height: 1.1;
-    max-width: 800px; /* evita que se alargue mucho en pantalla ancha */
 }
 
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+button{
+    font-weight: 700;
 }
 
+/* ================================
+   ESTILOS PRINCIPALES
+================================ */
 
-body, html{
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    font-family: 'Source Sans Pro', sans-serif;
-    color: #3d3838;
+@media (min-width: 1400px) {
+
+    /* ===  SECCIONES BASE  === */
+    body {
+        background-color: red;
+    }
+    .step1,
+    .step2,
+    .step3,
+    .step4,
+    .step5,
+    .step6,
+    .step7 {
+        width: 100%;
+        height: var(--section-height);
+    }
+
+    .step1 {
+        background: var(--color-bg-light);
+       
+    }
+
+    .step2 {
+        background: var(--color-dark);
+        padding: 0 var(--padding-global);
+    }
+
+    .step3,
+    .step4 {
+        background: var(--color-bg-light);
+        padding: 0 var(--padding-global);
+    }
+
+    .step5 {
+        background: var(--color-bg-gray);
+        height: var(--section-height-lg);
+    }
+
+    .step6 {
+        background: var(--color-bg-light);
+    }
+
+    .step7 {
+        background: var(--color-dark);
+    }
+
+
+    /* =============================
+       STEP 1 - PERFIL
+    ============================== */
+
+    nav ul li {
+        list-style: none;
+        display: inline;
+    }
+
+    li>a {
+        text-decoration: none;
+        color: var(--color-text);
+        font-weight: bold;
+        border-right: 2px solid var(--color-text);
+        font-size: 1.5em;
+        padding: 0px 10px;
+    }
+
+    nav ul li:last-child a {
+        border: none;
+    }
+
+    .step1 {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .seccion-perfil {
+        flex-basis: 62%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 80px;
+        padding-left: var(--padding-small) ;
+        padding-right: var(--padding-small);
+    }
+
+    .avatar-imagen {
+        flex-basis: 38%;
+        height: var(--avatar-height);
+        width: 100%;
+        display: flex;
+        align-items: stretch;
+        justify-content: center;
+        overflow: hidden;
+    }
+
+    .avatar-imagen img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+
+    .botones {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        gap: 10px;
+        margin-left: 90px;
+    }
+
+    .IrProctos {
+        width: 205px;
+        height: 73px;
+        padding: 10px 5px;
+        background: var(--color-dark);
+        color: white;
+        border: none;
+        font-size: 1em;
+    }
+
+    .btContacto {
+        width: 150px;
+        height: 73px;
+        padding: 10px 5px;
+        border: 2px solid var(--color-dark);
+        background: white;
+        font-size: 1em;
+    }
+
+
+
+    /* =============================
+       STEP 2 
+    ============================== */
+
+    .step2 {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        gap: 80px;
+    }
+
+    .step2 p,
+    .step2 h1 {
+        color: white;
+    }
     
-}
-
-/*media 1400px*/
-
-.step1,.step2,.step3,.step4,.step5,.step6,.step7{
-    width: 100%;
-    height: 500px; 
-   
-   
+    .habilidades-icons {
+        width: 100%;
+        margin-top: 30px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 45px;
+    }
     
+    
+    .icon-tecn {
+            max-width: 80px;
+            height: auto;
+        }
+    
+
+    /* =============================
+       STEP 3
+    ============================== */
+
+    .step3 {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        border: 2px solid transparent;
+    }
+
+    .habilidades-tecnicas {
+        width: 100%;
+        height: 480px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 30px;
+    }
+
+    .step3:hover {
+        border: 2px solid var(--step-border-hover);
+    }
+
+    .block-rol {
+        width: 230px;
+    }
+
+
+
+    /* =============================
+       STEP 4
+    ============================== */
+
+    .step4 {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 40px;
+    }
+
+    .habilidades-core-bloques {
+        display: grid;
+            gap: 15px;
+            width: 100%;
+            /* Distribución automática de los bloques */
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            /* Centra los bloques cuando sobran columnas */
+            justify-content: center;
+    }
+
+    .core-block {
+        border: 2px solid gainsboro;
+        border-radius: 2px;
+        padding: 15px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        text-align: center;
+        position: relative;
+    }
+
+    .core-icon {
+        width: 25px;
+        height: 25px;
+        position: absolute;
+        top: -12px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 2;
+    }
+
+    .core-icon-bg {
+        position: absolute;
+        top: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 20px;
+        height: 18px;
+        background: white;
+        border-radius: 50%;
+        z-index: 2;
+    }
+
+    .core-block::after {
+        content: "";
+        position: absolute;
+        top: -2px;
+        left: -1px;
+        width: 99.5%;
+        height: 5px;
+        background: var(--color-dark);
+        border: var(--color-dark) 3px solid;
+        border-top-left-radius: 3px;
+        border-top-right-radius: 3px;
+        z-index: 1;
+    }
 }
 
-.step1{
-    background-color: white;
-     padding-left: 30px;
-}
-.step2{
-    background-color: #2d2e34;
-    padding: 0px  70px;
-}
-.step3{
-    background-color: white;
-    padding: 0px  70px;
-}
-.step4{
-    background-color: white;
-    padding: 0px  70px;
-}
-.step5{
-    background-color: #f2f2f2;
-    height: 750px;
-}
-
-.step6{
-    background-color: white;
-}
-.step7{
-    background-color: #2d2e34;
-}
-
-/*---------------------- step1 --------------------------------*/
-
-nav > ul > li{
-    list-style: none;
-    display: inline;
-
-}
-
-li > a{
-    text-decoration: none;
-    color: #3d3838;
-    font-weight: bold;
-    border-right: 2px solid #3d3838;
-    font-size: 1.2em;
-    padding: 0px 10px;
-}
-
-nav ul li:last-child a {
-    border: none;
-}
-
-.step1{
-    display: flex;
-    flex-direction: row; /* Estaba column, lo cambiamos a row */
-    align-items: center; /* Alinea verticalmente */
-    justify-content: center; /* Separa los elementos */
-    background-color: white;
-}
-
-.seccion-perfil {
-    flex-basis: 62% ;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-}
-
-.avatar-imagen {
-    flex-basis: 38%;
-    height: 100%; /* o una altura fija, ej: 500px */
-    width: 100%;
-    display: flex;
-    align-items: stretch; /* estira su contenido verticalmente */
-    justify-content: center;
-    overflow: hidden; /* evita que sobresalga */
-}
-
-
-div > img{
-     width: 100%;     /* que use todo el ancho disponible */
-    height: 100%;    /* que use todo el alto disponible */
-    object-fit: cover; /* rellena el espacio aunque recorte */
-    object-position: center; /* centra el recorte */
-}
-
-
-
-.botones{
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    gap:10px;
-    margin-left: 90px;
-}
-
-.IrProctos{
-    border: none;
-    padding: 10px 5px;
-    width: 150px;
-    background-color: #2d2e34;
-    color: white;
-    font-size: 1em;
-}
-
-.btContacto{
-    border: 2px solid #2d2e34;
-    padding: 10px 5px;
-    width: 150px;
-    background-color: white;
-    font-size: 1em;
-}
-
-
-/*-------------------------------------------------------------*/
-
-/*---------------------- step2 --------------------------------*/
-
-.step2{
-    display: flex;
-    flex-direction: column;
-    align-items: self-start;
-    justify-content: center;
-    gap: 20px;
-}
-
-.step2 p, .step2 h1{
-    color: white;
-}
-
-
-
-.icon-tecn{
-    width: 50px;
-    height: auto;
-}
-
-.habilidades-icons{
-    margin-top:30px ;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 45px;
-}
-
-/*-------------------------------------------------------------*/
-
-
-
-
-
-/*---------------------- step3 --------------------------------*/
-
-
-.step3{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    border: 2px solid transparent;
-}
-
-.habilidades-tecnicas{
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    gap: 30px;
-    flex-wrap: wrap;
-    align-items: first baseline;
-}
-
-.step3:hover{
-    border: 2px solid gainsboro ; 
-}
-
-.block-rol{
-    width: 230px;
-}
-/*-------------------------------------------------------------*/
-
-/*---------------------- step4 --------------------------------*/
-
-.step4{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-}
-
-.core-block{
-    border: 2px solid gainsboro;
-    border-radius: 2px;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    text-align: center;
-    position: relative;
-    flex-wrap: wrap;
-}
-
-.core-icon{
-   width: 25px;
-    height: 25px;
-    position: absolute;
-    top: -12px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 2;
-}
-
-
-
-.core-icon-bg{
-   position: absolute;
-    top: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 20px;
-    height: 18px;
-    background: white;
-    border-radius: 50%;
-    z-index: 2; 
-}
-
-.core-block::after{
-   content: "";
-    position: absolute;
-    top: -2px;
-    left: -4px;
-    width: 101%;
-    height: 4px; /* grosor de la línea */
-    background: #2d2e34; /* color de la línea */
-    border: none; /* quita el border si lo tienes */
-    z-index: 1;
-}
 
 /*-------------------------------------------------------------*/
 
