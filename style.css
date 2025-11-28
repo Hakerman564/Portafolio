@@ -321,7 +321,7 @@ button{
 }
 
 .block-rol h3 {
-    height: 100px;
+    height: 65px;
     display: flex;
     text-align: center;
     border-bottom: rgba(0,0,0,0.08) 2px solid;

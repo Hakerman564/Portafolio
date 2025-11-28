@@ -33,7 +33,7 @@ Personalizacion = {
     },
 
     Habilidades_Rol: {
-        encabezado: "Capacidades de Desarrollo FullStack",
+        encabezado: "Habilidades tecnicas",
 
         habilidad: {
             Maquetacion: {
@@ -41,8 +41,8 @@ Personalizacion = {
                 Descripccion: "Aplicación de estilos y estructura visual para páginas web usando CSS moderno."
             },
             RestApi: {
-                Principal: "Desarrollo con Rest Api y Open-api",
-                Descripccion: "Creación y consumo de APIs RESTful para conectar el frontend y backend de aplicaciones."
+                Principal: "Despliege de Api",
+                Descripccion: "Construllendo logica de negocio y desarollando la logica detras del servidor."
             },
             Responsive: {
                 Principal: "Web responsivo",
@@ -53,7 +53,7 @@ Personalizacion = {
                 Descripccion: "Modelado y administración de bases de datos relacionales y no relacionales."
             },
             Integracion: {
-                Principal: "Integracion Frontend-Backend",
+                Principal: "Integracion De sistema",
                 Descripccion: "Conexión eficiente entre la interfaz de usuario y la lógica del servidor."
             }
         }
