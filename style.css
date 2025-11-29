@@ -83,15 +83,42 @@ h3 {
     border-radius: var(--radius);
     font-weight: bold;
     cursor: pointer;
+    transition: background .2s;
 }
 
 .btn-outline {
     background: transparent;
+    color: var(--color-dark);
     border: 2px solid var(--color-dark);
     padding: 12px 20px;
     border-radius: var(--radius);
     cursor: pointer;
     font-weight: bold;
+    transition: background .2s;
+}
+
+.btn-submit {
+    padding: 10px;
+    background: #00aaff;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn-submit:hover {
+    background: #0088cc;
+}
+
+.btn-primary:hover {
+    background: #45464ea4;
+    color: white;
+}
+
+.btn-outline:hover {
+    box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.1); 
 }
 
 /* Tarjetas base reutilizables */
@@ -125,7 +152,7 @@ img {
     flex-direction: column;
     /* Mobile: una sola columna */
     gap: 30px;
-    padding: 40px 20px;
+    padding: 40px 20px 0px 20px;
     text-align: center;
 }
 
@@ -154,6 +181,10 @@ img {
     font-weight: 700;
     color: var(--color-text);
     font-size: 1rem;
+}
+
+a{
+    text-decoration: none;
 }
 
 /* ---------------------------------------------
@@ -199,7 +230,7 @@ img {
 
 @media (min-width: 600px) {
     .hero {
-        padding: 60px 40px;
+        padding: 60px 40px 0px 40px;
     }
 
     .hero-buttons {
@@ -221,7 +252,7 @@ img {
         justify-content: space-between;
         text-align: left;
         /* Texto alineado izquierda */
-        padding: 80px 60px;
+        padding: 80px 60px 0px 60px;
     }
 
     .hero-content {
@@ -251,7 +282,7 @@ img {
 
 @media (min-width: 1400px) {
     .hero {
-        padding: 100px 120px;
+        padding: 100px 120px 0px 120px;
     }
 
     .hero-image img {
@@ -734,11 +765,20 @@ img {
 .timeline {
     list-style: none;
     padding-left: 25px;
-    border-left: 3px solid rgba(0, 0, 0, 0.3);
     display: flex;
     flex-direction: column;
     gap: 30px;
     position: relative;
+}
+
+.timeline::before {
+    content: "";
+    position: absolute;
+    left: 2px;
+    top: 8px;
+    width: 2px;
+    height: 79%;
+    background: rgba(0, 0, 0, 0.1);
 }
 
 /* Puntos del timeline */
@@ -1065,6 +1105,13 @@ img {
     gap: 40px;
 }
 
+.footer-content{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    justify-content: space-between;
+}
+
 /* Branding */
 .footer-brand h1 {
     font-size: 1.8rem;
@@ -1100,7 +1147,15 @@ img {
     gap: 10px;
 }
 
-.social-link {
+.social-links {
+    padding: 8px 14px;
+    max-width: 200px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.social-links a{
     padding: 8px 14px;
     background: rgba(255, 255, 255, 0.08);
     border-radius: var(--radius);
@@ -1110,7 +1165,7 @@ img {
     transition: background .2s;
 }
 
-.social-link:hover {
+.social-links a:hover {
     background: rgba(255, 255, 255, 0.18);
 }
 
@@ -1136,23 +1191,8 @@ img {
     color: rgba(255, 255, 255, 0.6);
 }
 
-.footer-message button {
-    background: var(--color-primary);
-    color: white;
-    border: none;
-    padding: 12px;
-    border-radius: var(--radius);
-    font-weight: bold;
-    cursor: pointer;
-    transition: background .2s;
-}
-
-.footer-message button:hover {
-    background: var(--color-primary-dark);
-}
-
 /* Copyright */
-.footer-copy {
+.footer-rights{
     text-align: center;
     margin-top: 20px;
     opacity: .7;
@@ -1165,13 +1205,23 @@ img {
 
 @media (min-width: 600px) {
     .footer {
-        grid-template-columns: repeat(2, 1fr);
+        flex-direction: column;
         padding: 60px 40px;
     }
 
-    .footer-copy {
-        grid-column: span 2;
+    .social-links {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 10px;
     }
+
+    .footer-content{
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+  
 }
 
 /* =========================================================
@@ -1180,13 +1230,14 @@ img {
 
 @media (min-width: 992px) {
     .footer {
-        grid-template-columns: repeat(4, 1fr);
         padding: 80px 100px;
     }
 
-    .footer-copy {
-        grid-column: span 4;
+    .footer-content{
+        gap: 20px;
     }
+
+  
 }
 
 /* =========================================================
