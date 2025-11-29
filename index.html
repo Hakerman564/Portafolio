@@ -1,221 +1,205 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portafolio Digital</title>
+
+    <!-- Mejora en meta descripción para SEO -->
+    <meta name="description"
+        content="Portafolio profesional de Negel Díaz — Desarrollador FullStack con experiencia en desarrollo web, responsive design y APIs.">
+
+    <title>Negel Díaz | FullStack Developer</title>
+
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <header class="step1">
-        <div class="seccion-perfil perfil-item">
-            <nav>
+
+    <!-- =========================================================
+        HERO SECTION (antes .step1)
+        Imagen arriba en mobile, al costado en desktop (mobile-first)
+    ========================================================== -->
+    <header class="hero">
+        <div class="hero-content">
+
+            <!-- Menú principal -->
+            <nav class="main-nav">
                 <ul>
-                    <li><a href="#HABILIDAD">Habilidades</a></li>
-                    <li><a href="#FORMACION">Formacion</a></li>
-                    <li><a href="#PROYECTOS">Proyectos</a></li>
-                    <li><a href="#CONCTACTOS">Conctacto</a></li>
+                    <li><a href="#skills">Habilidades</a></li>
+                    <li><a href="#education">Formación</a></li>
+                    <li><a href="#projects">Proyectos</a></li>
+                    <li><a href="#contact">Contacto</a></li>
                 </ul>
             </nav>
-            <div class="texto-titilo perfil-item">
-                <h1>Nelgel Diaz: Desarollador FullStack</h1>
-                <p> Un desarrollador FullStack con pasión por crear soluciones innovadoras.
-                    Explora mi perfil para conocer mis habilidades, educación y proyectos.</p>
-            </div>
-            <div class="botones">
-                <button class="IrProctos">Ver proyectos</button>
-                <button class="btContacto">Contactar</button>
+
+            <!-- Texto del Hero -->
+            <div class="hero-text">
+                <h1>Negel Díaz — Desarrollador FullStack</h1>
+                <p>
+                    Desarrollador FullStack con pasión por crear soluciones innovadoras.
+                    Explora mis habilidades, educación y proyectos destacados.
+                </p>
+
+                <div class="hero-buttons">
+                    <button class="btn-primary">Ver proyectos</button>
+                    <button class="btn-outline">Contactar</button>
+                </div>
             </div>
         </div>
 
-        <div class="avatar-imagen">
-            <img src="img/perfil.jpg" alt="imagen de perfil">
-        </div>
+        <!-- Imagen del hero (antes .avatar-imagen) -->
+        <figure class="hero-image">
+            <img src="img/perfil.jpg" alt="Foto de perfil de Negel Díaz">
+        </figure>
     </header>
+
     <main>
 
-        <section class="habilidad-clave step2" id="HABILIDAD">
-            <h1>Tegnologias Dominadas</h1>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                Quos molestias distinctio iste unde cupiditate quia id
-                optio nesciunt maiores asperiores ipsum vero reiciendis,
-                impedit numquam vitae suscipit molestiae eius eveniet.</p>
-            <div class="habilidades-icons">
-                <!--icono traidos desde javascript-->
+        <!-- =========================================================
+            SKILLS SECTION (antes .step2)
+            Tecnologías dominadas — generado dinámicamente por JS
+        ========================================================== -->
+        <section id="skills" class="skills">
+            <h2>Tecnologías Dominadas</h2>
+            <p>
+                Conjunto de herramientas y lenguajes que utilizo activamente
+                para crear interfaces modernas, APIs eficientes y soluciones profesionales.
+            </p>
+
+            <div class="skills-icons"><!-- Iconos generados desde JS --></div>
+        </section>
+
+        <!-- =========================================================
+            TECHNICAL SKILLS (antes .step3)
+            Tarjetas creadas dinámicamente por JS
+        ========================================================== -->
+        <section class="technical-skills">
+            <h2>Habilidades Técnicas</h2>
+
+            <!-- Contenedor donde JS inserta tarjetas de rol -->
+            <div class="tech-grid"></div>
+        </section>
+
+        <!-- =========================================================
+            SOFT SKILLS (antes .step4)
+        ========================================================== -->
+        <section class="soft-skills">
+            <h2>Habilidades Blandas</h2>
+
+            <div class="soft-grid"><!-- Grid de soft skills --></div>
+        </section>
+
+        <!-- =========================================================
+            EDUCATION SECTION (antes .step5)
+        ========================================================== -->
+        <section id="education" class="education">
+            <h2>Formación Académica y Certificaciones</h2>
+
+            <div class="education-wrapper">
+
+                <!-- Formación académica -->
+                <article class="education-academic">
+                    <h3>Educación</h3>
+
+                    <ul class="timeline">
+                        <li>
+                            <p class="year">UCSD (2023–2026)</p>
+                            <p class="career">Ingeniería en Sistemas Computacionales</p>
+                        </li>
+
+                        <li>
+                            <p class="year">ITSC (2020–2022)</p>
+                            <p class="career">Técnico en Desarrollo de Software</p>
+                        </li>
+                    </ul>
+                </article>
+
+                <!-- Certificaciones -->
+                <article class="education-certifications">
+                    <h3>Certificaciones</h3>
+                    <p>Certificaciones que validan mis habilidades en desarrollo web y tecnologías modernas.</p>
+
+                    <div class="cert-grid">
+                        <!-- Imágenes de ejemplo -->
+                        <img class="cert-img" src="/Portafolio/certificate/Certificado.png" alt="Certificación">
+                        <img class="cert-img" src="/Portafolio/certificate/Certificado.png" alt="Certificación">
+                        <img class="cert-img" src="/Portafolio/certificate/Certificado.png" alt="Certificación">
+                        <img class="cert-img" src="/Portafolio/certificate/Certificado.png" alt="Certificación">
+                        <img class="cert-img" src="/Portafolio/certificate/Certificado.png" alt="Certificación">
+                    </div>
+                </article>
             </div>
         </section>
 
-        <section class="habilidad-dess step3">
-            <h1></h1>
+        <!-- =========================================================
+            PROJECTS SECTION (antes .step6)
+        ========================================================== -->
+        <section id="projects" class="projects">
+            <h2>Proyectos Destacados</h2>
+            <p>
+                Algunos de mis trabajos más relevantes, donde aplico habilidades técnicas
+                para resolver problemas reales y crear soluciones efectivas.
+            </p>
 
-            <div class="habilidades-tecnicas">
-
-            </div>
-        </section>
-
-        <section class="habilidad-core step4">
-            <h1>Habilidades Blandas</h1>
-            <div class="habilidades-core-bloques">
-                <!--Contenido-->
-                <div class="core-block cart-b" width="auto" height="auto">
-                    <span class="core-icon-bg"></span>
-                    <img src="icon/usobajo/exclamation.svg" alt="core-icon" class="core-icon">
-                    <h3>Pensamiento A</h3>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                        Quos molestias distinctio iste unde cupiditate quia id
-                        optio nesciunt maiores asperiores ipsum vero reiciendis,
-                        impedit numquam vitae suscipit molestiae eius eveniet.</p>
-                </div>
-
-                <div class="core-block cart-b" width="auto" height="auto">
-                    <span class="core-icon-bg"></span>
-                    <img src="icon/usobajo/exclamation.svg" alt="core-icon" class="core-icon">
-                    <h3>Pensamiento A</h3>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                        Quos molestias distinctio iste unde cupiditate quia id
-                        optio nesciunt maiores asperiores ipsum vero reiciendis,
-                        impedit numquam vitae suscipit molestiae eius eveniet.</p>
-                </div>
-
-                <div class="core-block cart-b" width="auto" height="auto">
-                    <span class="core-icon-bg"></span>
-                    <img src="icon/usobajo/exclamation.svg" alt="core-icon" class="core-icon">
-                    <h3>Pensamiento A</h3>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                        Quos molestias distinctio iste unde cupiditate quia id
-                        optio nesciunt maiores asperiores ipsum vero reiciendis,
-                        impedit numquam vitae suscipit molestiae eius eveniet.</p>
-                </div>
-
-                <div class="core-block cart-b" width="auto" height="auto">
-                    <span class="core-icon-bg"></span>
-                    <img src="icon/usobajo/exclamation.svg" alt="core-icon" class="core-icon">
-                    <h3>Pensamiento A</h3>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                        Quos molestias distinctio iste unde cupiditate quia id
-                        optio nesciunt maiores asperiores ipsum vero reiciendis,
-                        impedit numquam vitae suscipit molestiae eius eveniet.</p>
-                </div>
-
-                <div class="core-block cart-b" width="auto" height="auto">
-                    <span class="core-icon-bg"></span>
-                    <img src="icon/usobajo/exclamation.svg" alt="core-icon" class="core-icon">
-                    <h3>Pensamiento A</h3>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                        Quos molestias distinctio iste unde cupiditate quia id
-                        optio nesciunt maiores asperiores ipsum vero reiciendis,
-                        impedit numquam vitae suscipit molestiae eius eveniet.</p>
-                </div>
-                
-       
-            </div>
-
-           
-
-
-            <!--Fin-->
-        </section>
-
-        <section class="formacion step5" id="FORMACION">
-            <h1>Formación Académica Y Certificaciones</h1>
-            <div class="formaciones">
-                <div class="formacion-acadmica">
-                    <div class="title">
-                        <h3>Educacion</h3>
-                    </div>
-                    <div class="education-list">
-                        <ul>
-                            <li>
-                                <p class="Locate-Year">UCSD (2023-2026)</p>
-                                <p class="title-carrera">
-                                ingenieria en Sitema Computacionales</p>
-                            </li>
-                              <li>
-                                <p class="Locate-Year">ITSC (2020 - 2022)</p>
-                                <p class="title-carrera">
-                                Técnico en Desarrollo de Software</p>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="certificados">
-                    <div class="title">
-                        <h2>Certificaciones</h2>
-                    </div>
-                    <div class="subtitle">
-                        <p>Certificaciones que validan mis conocimientos y habilidades
-                        en el desarrollo web.</p>
-                    </div>
-                    <div class="certification-colection">
-                        <img class="img-certification" src="/Portafolio/certificate/Certificado.png" alt="Imagen de Centificado">
-                        <img class="img-certification" src="/Portafolio/certificate/Certificado.png" alt="Imagen de Centificado">
-                        <img class="img-certification" src="/Portafolio/certificate/Certificado.png" alt="Imagen de Centificado">
-                        <img class="img-certification" src="/Portafolio/certificate/Certificado.png" alt="Imagen de Centificado">
-                        <img class="img-certification" src="/Portafolio/certificate/Certificado.png" alt="Imagen de Centificado">
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="proyecto step6" id="PROYECTOS">
-            <div class="title">
-                <h1>Proyectos Destacados</h1>
-            </div>
-            <div class="subtitle">
-                <p>Explora algunos de mis trabajos más relevantes, donde aplico mis habilidades para resolver problemas y crear soluciones
-innovadoras</p>
-            </div>
-            <div class="proyecto-bloques">
-                <!--Prototipo-->
-                <div class="project-block cart-b">
+            <div class="projects-grid">
+                <article class="project-card card">
                     <h3>Abng Consulting</h3>
-                    <p>Solucion de automatizacion de reportes IT1 y IR2 Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut odit nulla nemo sapiente amet quo vel veniam harum, ducimus repellendus maxime</p>
+                    <p>
+                        Solución de automatización de reportes IT1 e IR2.
+                        Implementación de herramientas para agilizar procesos internos.
+                    </p>
                     <a href="#">Ver proyecto</a>
-                </div>
+                </article>
             </div>
         </section>
 
     </main>
 
-    <footer class="step7" id="CONCTACTOS">
+    <!-- =========================================================
+        FOOTER SECTION (antes .step7)
+    ========================================================== -->
+    <footer id="contact" class="footer">
+
         <div class="footer-content">
 
-        <!-- Contacto -->
-        <div class="footer-section">
-            <h2>Contacto</h2>
-            <span>Email: negeldiaz@example.com</span>
-            <span>Tel: +1 809-000-0000</span>
-            <span>Ubicación: Santo Domingo Este</span>
+            <!-- Contacto -->
+            <section class="footer-section">
+                <h3>Contacto</h3>
+                <span>Email: EduardoMarine09@outlook.com</span>
+                <span>Tel: +1 829-906-5853</span>
+                <span>Ubicación: Santo Domingo Este</span>
+            </section>
+
+            <!-- Redes sociales -->
+            <section class="footer-section">
+                <h3>Redes</h3>
+                <div class="social-links">
+                    <a href="#">Facebook</a>
+                    <a href="#">Instagram</a>
+                    <a href="#">GitHub</a>
+                    <a href="#">LinkedIn</a>
+                </div>
+            </section>
+
+            <!-- Mensaje -->
+            <section class="footer-section">
+                <h3>Envíame un mensaje</h3>
+
+                <form class="footer-form">
+                    <input type="text" placeholder="Tu nombre">
+                    <input type="email" placeholder="Tu correo">
+                    <textarea placeholder="Tu mensaje"></textarea>
+                    <button>Enviar</button>
+                </form>
+            </section>
+
         </div>
 
-        <!-- Redes Sociales -->
-        <div class="footer-section">
-            <h2>Redes</h2>
-            <div class="social-links">
-                <a href="#">Facebook</a>
-                <a href="#">Instagram</a>
-                <a href="#">GitHub</a>
-                <a href="#">LinkedIn</a>
-            </div>
-        </div>
+        <p class="footer-rights">©2025 Negel Díaz — Todos los derechos reservados</p>
 
-        <!-- Mensaje -->
-        <div class="footer-section">
-            <h2>Envíame un mensaje</h2>
-            <form class="footer-form">
-                <input type="text" placeholder="Tu nombre">
-                <input type="email" placeholder="Tu correo">
-                <textarea placeholder="Tu mensaje"></textarea>
-                <button>Enviar</button>
-            </form>
-        </div>
-
-    </div>
-
-    <p class="footer-rights">©2025 Negel Díaz — Todos los derechos reservados</p>
     </footer>
+
     <script src="app.js"></script>
 </body>
 

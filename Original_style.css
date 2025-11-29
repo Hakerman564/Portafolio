@@ -1,0 +1,671 @@
+@import url('font.css');
+
+/* ================================
+   VARIABLES GLOBALES
+================================ */
+:root {
+
+    /* --- Breakpoints (puedes editarlos libremente) --- */
+    --bp-miDesktop: 1400px;
+    --bp-desktop: 1200px;
+    --bp-tablet: 768px;
+    --bp-phone: 480px;
+
+    /* --- Colores globales --- */
+    --color-dark: #2d2e34;
+    --color-text: #3d3838;
+    --color-bg-light: #ffffff;
+    --color-bg-gray: #f2f2f2;
+
+    /* --- Tipografías / tamaños --- */
+    --font-title-big: 2.8em;
+    --font-title-medium: 1.4em;
+    --font-text: 1.3em;
+
+    /* --- Layout / Medidas globales --- */
+    --page-max-width: 1463px;
+    /* ancho base de tu pantalla */
+    --section-height: 778px;
+    /* altura estándar */
+    --section-height-5: 900px;
+    /* altura para step5 */
+    --avatar-height: 100%;
+    /* altura del avatar */
+    --padding-global: 150px;
+    /* padding base de secciones */
+    --padding-small: 120px;
+    /* padding usado en step1 */
+
+    /* --- Otros --- */
+    --step-border-hover: gainsboro;
+}
+
+
+/* ================================
+   RESETEO Y BASE
+================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body,
+html {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Source Sans Pro', sans-serif;
+    color: var(--color-text);
+}
+
+/* Fuentes para encabezados */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.25;
+    word-spacing: 2px;
+}
+
+h1 {
+    color: black;
+    font-size: var(--font-title-big);
+    font-weight: bold;
+    margin-bottom: 0.5em;
+}
+
+h3 {
+    font-size: var(--font-title-medium);
+    padding-bottom: 20px;
+}
+
+p {
+    font-size: var(--font-text);
+    line-height: 1.1;
+}
+
+button{
+    font-weight: 700;
+}
+
+/* ================================
+   ESTILOS PRINCIPALES
+================================ */
+
+@media (min-width: 1400px) {
+
+    /* ===  SECCIONES BASE  === */
+    body {
+        background-color: red;
+    }
+    .step1,
+    .step2,
+    .step3,
+    .step4,
+    .step6
+     {
+        
+        height: var(--section-height);
+    }
+
+    .step1 {
+        background: var(--color-bg-light);
+       
+    }
+
+    .step2 {
+        background: var(--color-dark);
+        padding: 0 var(--padding-global);
+    }
+
+    .step3,
+    .step4 {
+        background: var(--color-bg-light);
+        padding: 0 var(--padding-global);
+    }
+
+    .step5 {
+        width: 100%;
+        background: var(--color-bg-gray);
+        height: var(--section-height-lg);
+        padding: 0 var(--padding-global);
+        height: var(--section-height-5);
+    }
+
+    .step6 {
+        background: var(--color-bg-light);
+        padding: 0 var(--padding-global);
+    }
+
+    .step7 {
+        width: 100%;
+        background: var(--color-dark);
+        padding: 0 var(--padding-global);
+        height: 300px;
+    }
+
+
+    /* =============================
+       STEP 1 - PERFIL
+    ============================== */
+
+    nav ul li {
+        list-style: none;
+        display: inline;
+    }
+
+    li>a {
+        text-decoration: none;
+        color: var(--color-text);
+        font-weight: bold;
+        border-right: 2px solid var(--color-text);
+        font-size: 1.5em;
+        padding: 0px 10px;
+    }
+
+    nav ul li:last-child a {
+        border: none;
+    }
+
+    .step1 {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .seccion-perfil {
+        flex-basis: 62%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 80px;
+        padding-left: var(--padding-small) ;
+        padding-right: var(--padding-small);
+    }
+
+    .avatar-imagen {
+        flex-basis: 38%;
+        height: var(--avatar-height);
+        width: 100%;
+        display: flex;
+        align-items: stretch;
+        justify-content: center;
+        overflow: hidden;
+    }
+
+    .avatar-imagen img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+
+    .botones {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        gap: 10px;
+        margin-left: 90px;
+    }
+
+    .IrProctos {
+        width: 205px;
+        height: 73px;
+        padding: 10px 5px;
+        background: var(--color-dark);
+        color: white;
+        border: none;
+        font-size: 1em;
+    }
+
+    .btContacto {
+        width: 150px;
+        height: 73px;
+        padding: 10px 5px;
+        border: 2px solid var(--color-dark);
+        background: white;
+        font-size: 1em;
+    }
+
+
+
+    /* =============================
+       STEP 2 
+    ============================== */
+
+    .step2 {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        gap: 80px;
+    }
+
+    .step2 p,
+    .step2 h1 {
+        color: white;
+    }
+    
+    .habilidades-icons {
+        width: 100%;
+        margin-top: 30px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 45px;
+    }
+    
+    
+    .icon-tecn {
+            max-width: 80px;
+            height: auto;
+        }
+    
+
+    /* =============================
+       STEP 3
+    ============================== */
+
+    .step3 {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        border: 2px solid transparent;
+        gap: 45px;
+    }
+
+    .habilidades-tecnicas {
+        width: 100%;
+        height: 480px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 30px;
+    }
+
+    .step3:hover {
+        border: 2px solid var(--step-border-hover);
+    }
+
+    .block-rol {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    width: 230px;
+    padding: 16px;
+
+    background: #ffffff;
+    border: 1px solid #e5e5e5;
+    border-radius: 12px;
+
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);  /* sombra suave */
+
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.block-rol:hover {
+    transform: translateY(-3px);             /* efecto sutil */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+}
+
+.block-rol h3 {
+    height: 65px;
+    display: flex;
+    text-align: center;
+    border-bottom: rgba(0,0,0,0.08) 2px solid;
+}
+
+
+
+.block-rol p {
+    line-height: 1.3em;
+    text-align: initial;
+}
+
+
+
+    /* =============================
+       STEP 4
+    ============================== */
+
+    .step4 {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 40px;
+    }
+
+    .habilidades-core-bloques {
+        display: grid;
+            gap: 15px;
+            width: 100%;
+            /* Distribución automática de los bloques */
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            /* Centra los bloques cuando sobran columnas */
+            justify-content: center;
+    }
+
+    .core-block {
+        text-align: center;
+        padding: 15px;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+
+    .cart-b {
+            border: 2px solid gainsboro;
+            border-radius: 2px;
+            position: relative;
+    }
+
+   .cart-b::after {
+       content: "";
+       position: absolute;
+       top: -2px;
+       left: -1px;
+       width: 99.5%;
+       height: 5px;
+       background: var(--color-dark);
+       border: var(--color-dark) 3px solid;
+       border-top-left-radius: 3px;
+       border-top-right-radius: 3px;
+       z-index: 1;
+   }
+
+    .core-icon {
+        width: 25px;
+        height: 25px;
+        position: absolute;
+        top: -12px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 2;
+    }
+
+    .core-icon-bg {
+        position: absolute;
+        top: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 20px;
+        height: 18px;
+        background: white;
+        border-radius: 50%;
+        z-index: 2;
+    }
+/*
+    .core-block::after {
+        content: "";
+        position: absolute;
+        top: -2px;
+        left: -1px;
+        width: 99.5%;
+        height: 5px;
+        background: var(--color-dark);
+        border: var(--color-dark) 3px solid;
+        border-top-left-radius: 3px;
+        border-top-right-radius: 3px;
+        z-index: 1;
+    }
+*/
+
+        /* =============================
+                        STEP 5
+        ============================== */
+    .step5{
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        gap: 50px;
+        padding-top:50px;
+    }
+
+    .formaciones{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .formacion-acadmica{
+        width: 48%;
+    }
+
+    .education-list ul{
+        position: relative;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        padding-left: 30px;
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .education-list ul::before{
+        content: "";
+        position: absolute;
+        left:-3px;
+        top: 15px;
+        bottom: 18px;
+        width: 4px;
+        background-color: black;
+        opacity: 0.5;
+    }
+
+    .education-list ul li{
+       position: relative;
+
+    }
+    .education-list ul li::before {
+        content: "";
+        position: absolute;
+        left: -46px;
+        top: -1px;
+        display: block;
+        width: 30px;
+        height:30px;
+        border-radius: 50%;
+        background-color: var(--color-dark);
+    }
+
+    .certificados{
+        width: 48%;
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        gap: 20px;
+    }
+
+    .certification-colection{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .img-certification{
+        width: 250px;
+    }
+
+          /* =============================
+                        STEP 6
+             ============================== */
+
+    .step6{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 50px;
+    }
+
+    .project-block{
+        height: 275px;
+        width: 550px;
+        padding: 30px;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 25px;
+    }
+
+    .project-block p {
+       line-height: 1.2em;
+    }
+
+    .project-block a {
+       color: #2d2e34;
+       font-weight: 600;
+       font-size: 1.2em; 
+    }
+
+    .project-block::before{
+        content: counter(cardCounter);
+        counter-reset: cardCounter 1;
+        position: absolute;
+        top: -18px;
+        left: 245px;
+        background: var(--color-dark);
+        color: white;
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: bold;
+        z-index: 2;
+    }
+    
+        /* =============================
+               STEP 7 --- footer
+        ============================== */
+
+    .footer {
+        background: #111;
+        color: #eee;
+        padding: 50px 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+    }
+
+
+
+    .footer-content {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 40px;
+        max-width: 1200px;
+        margin: auto;
+    }
+
+    .footer-section {
+        padding-top: 40px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .footer-section h2 {
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+        color: #fff;
+    }
+
+    .footer-section span {
+        font-size: 0.95rem;
+        opacity: 0.8;
+        color: white;
+    }
+
+    /* Redes */
+    .social-links {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+    }
+
+    .social-links a {
+        color: #eee;
+        text-decoration: none;
+        opacity: 0.8;
+        transition: 0.3s;
+    }
+
+    .social-links a:hover {
+        opacity: 1;
+    }
+
+    /* Formulario */
+    .footer-form {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .footer-form input,
+    .footer-form textarea {
+        width: 100%;
+        padding: 10px;
+        border: none;
+        border-radius: 2px;
+        resize: none;
+        opacity: 0.8;
+        transition: opacity 0.5s ease;
+    }
+
+    .footer-form input:focus,
+    .footer-form textarea:focus{
+        opacity: 1;
+        outline: none;
+    }
+
+    .footer-form button {
+        padding: 10px;
+        background: #00aaff;
+        color: #fff;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        font-weight: bold;
+        transition: 0.3s;
+    }
+
+    .footer-form button:hover {
+        background: #0088cc;
+    }
+
+    /* Derechos Reservados */
+    .footer-rights {
+        text-align: center;
+        font-size: 0.85rem;
+        opacity: 0.6;
+    }
+
+}   
+
+
+
+
+/*-------------------------------------------------------------*/
+
+
+
+

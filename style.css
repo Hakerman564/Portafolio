@@ -1,671 +1,1200 @@
 @import url('font.css');
 
-/* ================================
-   VARIABLES GLOBALES
-================================ */
+/* =========================================================
+   1. VARIABLES GLOBALES
+   - Mobile-first: tamaños base optimizados para móviles.
+   - Puedes ajustar estos valores sin romper el diseño.
+========================================================= */
 :root {
-
-    /* --- Breakpoints (puedes editarlos libremente) --- */
-    --bp-miDesktop: 1400px;
-    --bp-desktop: 1200px;
-    --bp-tablet: 768px;
-    --bp-phone: 480px;
-
-    /* --- Colores globales --- */
     --color-dark: #2d2e34;
     --color-text: #3d3838;
-    --color-bg-light: #ffffff;
-    --color-bg-gray: #f2f2f2;
+    --color-light: #ffffff;
+    --color-gray: #f2f2f2;
 
-    /* --- Tipografías / tamaños --- */
-    --font-title-big: 2.8em;
-    --font-title-medium: 1.4em;
-    --font-text: 1.3em;
+    --font-title-big: 2rem;
+    --font-title-medium: 1.4rem;
+    --font-text: 1rem;
 
-    /* --- Layout / Medidas globales --- */
-    --page-max-width: 1463px;
-    /* ancho base de tu pantalla */
-    --section-height: 778px;
-    /* altura estándar */
-    --section-height-5: 900px;
-    /* altura para step5 */
-    --avatar-height: 100%;
-    /* altura del avatar */
-    --padding-global: 150px;
-    /* padding base de secciones */
-    --padding-small: 120px;
-    /* padding usado en step1 */
+    --max-width: 1200px;
 
-    /* --- Otros --- */
-    --step-border-hover: gainsboro;
+    --radius: 10px;
+    --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.08);
+
+    /* Breakpoints (mobile-first) */
+    --bp-tablet: 600px;
+    --bp-desktop: 992px;
+    --bp-desktop-xl: 1400px;
 }
 
-
-/* ================================
-   RESETEO Y BASE
-================================ */
+/* =========================================================
+   2. RESETS Y BASE GLOBAL
+========================================================= */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body,
 html {
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    font-family: 'Source Sans Pro', sans-serif;
-    color: var(--color-text);
+    scroll-behavior: smooth;
 }
 
-/* Fuentes para encabezados */
+body {
+    font-family: 'Source Sans Pro', sans-serif;
+    background: var(--color-light);
+    color: var(--color-text);
+    line-height: 1.4;
+}
+
+/* Titulos con buena jerarquía móvil */
 h1,
 h2,
-h3,
-h4,
-h5,
-h6 {
-    font-family: 'Montserrat', sans-serif;
-    line-height: 1.25;
-    word-spacing: 2px;
-}
-
-h1 {
-    color: black;
-    font-size: var(--font-title-big);
-    font-weight: bold;
-    margin-bottom: 0.5em;
-}
-
 h3 {
-    font-size: var(--font-title-medium);
-    padding-bottom: 20px;
-}
-
-p {
-    font-size: var(--font-text);
-    line-height: 1.1;
-}
-
-button{
+    font-family: 'Montserrat', sans-serif;
     font-weight: 700;
+    line-height: 1.2;
 }
 
-/* ================================
-   ESTILOS PRINCIPALES
-================================ */
+/* =========================================================
+   3. UTILIDADES GLOBALES
+   - Reutilizables para TODO el proyecto
+========================================================= */
 
-@media (min-width: 1400px) {
+/* Centrado flexible */
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-    /* ===  SECCIONES BASE  === */
-    body {
-        background-color: red;
-    }
-    .step1,
-    .step2,
-    .step3,
-    .step4,
-    .step6
-     {
-        
-        height: var(--section-height);
-    }
+/* Para limitar ancho en desktops */
+.container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 20px;
+}
 
-    .step1 {
-        background: var(--color-bg-light);
-       
-    }
+/* Estilos de botones globales */
+.btn-primary {
+    background: var(--color-dark);
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: var(--radius);
+    font-weight: bold;
+    cursor: pointer;
+}
 
-    .step2 {
-        background: var(--color-dark);
-        padding: 0 var(--padding-global);
-    }
+.btn-outline {
+    background: transparent;
+    border: 2px solid var(--color-dark);
+    padding: 12px 20px;
+    border-radius: var(--radius);
+    cursor: pointer;
+    font-weight: bold;
+}
 
-    .step3,
-    .step4 {
-        background: var(--color-bg-light);
-        padding: 0 var(--padding-global);
-    }
+/* Tarjetas base reutilizables */
+.card {
+    background: var(--color-light);
+    border: 1px solid gainsboro;
+    border-radius: var(--radius);
+    padding: 20px;
+    box-shadow: var(--shadow-sm);
+}
 
-    .step5 {
-        width: 100%;
-        background: var(--color-bg-gray);
-        height: var(--section-height-lg);
-        padding: 0 var(--padding-global);
-        height: var(--section-height-5);
-    }
+/* Grid adaptable */
+.grid-auto {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
 
-    .step6 {
-        background: var(--color-bg-light);
-        padding: 0 var(--padding-global);
-    }
+/* Imagen responsive */
+img {
+    max-width: 100%;
+    height: auto;
+}
+/* =========================================================
+   HERO — MOBILE FIRST
+   Imagen arriba, texto abajo.
+========================================================= */
 
-    .step7 {
-        width: 100%;
-        background: var(--color-dark);
-        padding: 0 var(--padding-global);
-        height: 300px;
-    }
-
-
-    /* =============================
-       STEP 1 - PERFIL
-    ============================== */
-
-    nav ul li {
-        list-style: none;
-        display: inline;
-    }
-
-    li>a {
-        text-decoration: none;
-        color: var(--color-text);
-        font-weight: bold;
-        border-right: 2px solid var(--color-text);
-        font-size: 1.5em;
-        padding: 0px 10px;
-    }
-
-    nav ul li:last-child a {
-        border: none;
-    }
-
-    .step1 {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .seccion-perfil {
-        flex-basis: 62%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 80px;
-        padding-left: var(--padding-small) ;
-        padding-right: var(--padding-small);
-    }
-
-    .avatar-imagen {
-        flex-basis: 38%;
-        height: var(--avatar-height);
-        width: 100%;
-        display: flex;
-        align-items: stretch;
-        justify-content: center;
-        overflow: hidden;
-    }
-
-    .avatar-imagen img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: center;
-    }
-
-    .botones {
-        width: 100%;
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-start;
-        gap: 10px;
-        margin-left: 90px;
-    }
-
-    .IrProctos {
-        width: 205px;
-        height: 73px;
-        padding: 10px 5px;
-        background: var(--color-dark);
-        color: white;
-        border: none;
-        font-size: 1em;
-    }
-
-    .btContacto {
-        width: 150px;
-        height: 73px;
-        padding: 10px 5px;
-        border: 2px solid var(--color-dark);
-        background: white;
-        font-size: 1em;
-    }
-
-
-
-    /* =============================
-       STEP 2 
-    ============================== */
-
-    .step2 {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        justify-content: center;
-        gap: 80px;
-    }
-
-    .step2 p,
-    .step2 h1 {
-        color: white;
-    }
-    
-    .habilidades-icons {
-        width: 100%;
-        margin-top: 30px;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: center;
-        gap: 45px;
-    }
-    
-    
-    .icon-tecn {
-            max-width: 80px;
-            height: auto;
-        }
-    
-
-    /* =============================
-       STEP 3
-    ============================== */
-
-    .step3 {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: flex-start;
-        border: 2px solid transparent;
-        gap: 45px;
-    }
-
-    .habilidades-tecnicas {
-        width: 100%;
-        height: 480px;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: flex-start;
-        gap: 30px;
-    }
-
-    .step3:hover {
-        border: 2px solid var(--step-border-hover);
-    }
-
-    .block-rol {
+.hero {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    /* Mobile: una sola columna */
+    gap: 30px;
+    padding: 40px 20px;
+    text-align: center;
+}
 
-    width: 230px;
-    padding: 16px;
+/* Contenedor del texto + menú */
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
 
-    background: #ffffff;
-    border: 1px solid #e5e5e5;
+/* ---------------------------------------------
+   NAV MOBILE
+   - Navegación centrada
+   - Espacio para tocar con el dedo
+--------------------------------------------- */
+.main-nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    list-style: none;
+}
+
+.main-nav a {
+    text-decoration: none;
+    font-weight: 700;
+    color: var(--color-text);
+    font-size: 1rem;
+}
+
+/* ---------------------------------------------
+   TEXTO DEL HERO
+--------------------------------------------- */
+.hero-text h1 {
+    font-size: 1.8rem;
+}
+
+.hero-text p {
+    font-size: 1rem;
+    margin-top: 10px;
+}
+
+/* Botones centrados en móvil */
+.hero-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+/* ---------------------------------------------
+   IMAGEN HERO
+--------------------------------------------- */
+.hero-image {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.hero-image img {
+    width: 100%;
+    max-width: 330px;
+    /* Tamaño ideal para móvil */
     border-radius: 12px;
+    object-fit: cover;
+}
 
-    box-shadow: 0 2px 6px rgba(0,0,0,0.08);  /* sombra suave */
+/* =========================================================
+   HERO — TABLET
+========================================================= */
+
+@media (min-width: 600px) {
+    .hero {
+        padding: 60px 40px;
+    }
+
+    .hero-buttons {
+        flex-direction: row;
+        justify-content: center;
+    }
+}
+
+/* =========================================================
+   HERO — DESKTOP
+   Imagen a la derecha, texto a la izquierda
+========================================================= */
+
+@media (min-width: 992px) {
+    .hero {
+        flex-direction: row;
+        /* Dos columnas */
+        align-items: center;
+        justify-content: space-between;
+        text-align: left;
+        /* Texto alineado izquierda */
+        padding: 80px 60px;
+    }
+
+    .hero-content {
+        flex-basis: 55%;
+        align-items: flex-start;
+    }
+
+    .hero-buttons {
+        justify-content: flex-start;
+    }
+
+    .hero-image {
+        flex-basis: 45%;
+        justify-content: flex-end;
+    }
+
+    .hero-image img {
+        max-width: 420px;
+        /* Más grande en desktop */
+        border-radius: 20px;
+    }
+}
+
+/* =========================================================
+   HERO — DESKTOP XL (>= 1400px)
+========================================================= */
+
+@media (min-width: 1400px) {
+    .hero {
+        padding: 100px 120px;
+    }
+
+    .hero-image img {
+        max-width: 500px;
+    }
+
+    .hero-text h1 {
+        font-size: 2.4rem;
+    }
+
+    .hero-text p {
+        font-size: 1.2rem;
+    }
+}
+
+/* =========================================================
+   SKILLS — MOBILE FIRST
+   Sección limpia, centrada y con buen espaciado vertical.
+========================================================= */
+
+.skills {
+    text-align: center;
+    /* Mobile: todo centrado */
+    padding: 40px 20px;
+    background: var(--color-dark);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+/* Título con tamaño adecuado en móvil */
+.skills h2 {
+    font-size: 1.8rem;
+}
+
+/* Texto descriptivo */
+.skills p {
+    font-size: 1rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* ---------------------------------------------
+   GRID DE ICONOS (generado por JS)
+   - auto-fit: acomodar iconos automáticamente
+   - minmax asegura que no se hagan demasiado pequeños
+--------------------------------------------- */
+
+.skills-icons {
+    display: grid;
+    gap: 25px;
+    grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
+    justify-items: center;
+    margin-top: 10px;
+}
+
+/* Estilos base para cada ícono */
+.skills-icons img {
+    width: 60px;
+    height: auto;
+    filter: brightness(90%);
+    transition: transform .2s ease;
+}
+
+.skills-icons img:hover {
+    transform: scale(1.1);
+}
+
+/* =========================================================
+   SKILLS — TABLET
+========================================================= */
+
+@media (min-width: 600px) {
+
+    .skills {
+        padding: 60px 40px;
+    }
+
+    .skills-icons img {
+        width: 70px;
+        /* un poco más grande */
+    }
+}
+
+/* =========================================================
+   SKILLS — DESKTOP
+   - Título alineado izquierda
+   - Párrafo alineado izquierda
+   - Grid más amplio
+========================================================= */
+
+@media (min-width: 992px) {
+
+    .skills {
+        text-align: left;
+        /* profesional */
+        padding: 80px 100px;
+        gap: 40px;
+    }
+
+    .skills h2 {
+        font-size: 2rem;
+    }
+
+    .skills p {
+        margin-left: 0;
+        /* quito auto-centro */
+        max-width: 700px;
+    }
+
+    .skills-icons {
+        grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+        gap: 35px;
+    }
+
+    .skills-icons img {
+        width: 80px;
+    }
+}
+
+/* =========================================================
+   SKILLS — DESKTOP XL
+   Para pantallas grandes como tu monitor original
+========================================================= */
+
+@media (min-width: 1400px) {
+    .skills {
+        padding: 100px 150px;
+    }
+
+    .skills h2 {
+        font-size: 2.4rem;
+    }
+
+    .skills-icons img {
+        width: 90px;
+    }
+}
+
+/* =========================================================
+   TECHNICAL SKILLS — MOBILE FIRST
+========================================================= */
+
+.technical-skills {
+    padding: 40px 20px;
+    background: var(--color-light);
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+/* Título en mobile */
+.technical-skills h2 {
+    text-align: center;
+    font-size: 1.8rem;
+}
+
+/* ---------------------------------------------------------
+   GRID DE TARJETAS TÉCNICAS
+   - Mobile first
+   - Columnas auto-ajustables
+--------------------------------------------------------- */
+.tech-grid {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    justify-items: center;
+}
+
+/* ---------------------------------------------------------
+   TARJETAS (antes .block-rol)
+   Convertida a .card-tech
+--------------------------------------------------------- */
+.card-tech {
+    width: 100%;
+    max-width: 260px;
+    padding: 18px;
+    background: var(--color-light);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid #e5e5e5;
+
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    text-align: left;
 
     transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
-.block-rol:hover {
-    transform: translateY(-3px);             /* efecto sutil */
-    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+/* Hover profesional */
+.card-tech:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 5px 14px rgba(0, 0, 0, 0.12);
 }
 
-.block-rol h3 {
-    height: 65px;
+/* Título de tarjeta */
+.card-tech h3 {
+    padding-bottom: 8px;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.08);
+    font-size: 1.1rem;
+    height: auto;
+}
+
+/* Descripción */
+.card-tech p {
+    line-height: 1.3;
+    font-size: 1rem;
+}
+
+/* =========================================================
+   TECHNICAL SKILLS — TABLET
+========================================================= */
+
+@media (min-width: 600px) {
+    .technical-skills {
+        padding: 60px 40px;
+    }
+
+    .technical-skills h2 {
+        text-align: left;
+    }
+}
+
+/* =========================================================
+   TECHNICAL SKILLS — DESKTOP
+========================================================= */
+
+@media (min-width: 992px) {
+
+    .technical-skills {
+        padding: 80px 100px;
+    }
+
+    .technical-skills h2 {
+        font-size: 2rem;
+    }
+
+    .tech-grid {
+        gap: 30px;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+
+    .card-tech {
+        max-width: 300px;
+        padding: 22px;
+    }
+}
+
+/* =========================================================
+   TECHNICAL SKILLS — DESKTOP XL
+========================================================= */
+
+@media (min-width: 1400px) {
+
+    .technical-skills {
+        padding: 100px 150px;
+        gap: 35px;
+    }
+
+    .technical-skills h2 {
+        font-size: 2.4rem;
+    }
+
+    .card-tech {
+        max-width: 330px;
+        padding: 24px;
+    }
+}
+
+/* =========================================================
+   SOFT SKILLS — MOBILE FIRST
+========================================================= */
+
+.soft-skills {
+    padding: 40px 20px;
+    background: var(--color-light);
     display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+/* Título */
+.soft-skills h2 {
     text-align: center;
-    border-bottom: rgba(0,0,0,0.08) 2px solid;
+    font-size: 1.8rem;
 }
 
-
-
-.block-rol p {
-    line-height: 1.3em;
-    text-align: initial;
+/* ---------------------------------------------------------
+   GRID DE TARJETAS
+--------------------------------------------------------- */
+.soft-grid {
+    display: grid;
+    gap: 25px;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
 }
 
+/* ---------------------------------------------------------
+   TARJETAS SOFT SKILLS
+   Manteniendo tu idea de borde + cinta superior
+--------------------------------------------------------- */
+.soft-card {
+    position: relative;
+    padding: 25px 20px 20px;
+    background: var(--color-light);
+    border: 2px solid gainsboro;
+    border-radius: var(--radius);
+    text-align: center;
+    box-shadow: var(--shadow-sm);
 
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 
-    /* =============================
-       STEP 4
-    ============================== */
+    transition: transform .2s ease, box-shadow .2s ease;
+}
 
-    .step4 {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: flex-start;
+/* Hover */
+.soft-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 5px 14px rgba(0, 0, 0, 0.12);
+}
+
+/* ---------------------------------------------------------
+   CINTA SUPERIOR (REIMAGINADA MÁS LIMPIA)
+--------------------------------------------------------- */
+.soft-card::before {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: 0;
+    width: 100%;
+    height: 8px;
+    background: var(--color-dark);
+    border-top-left-radius: var(--radius);
+    border-top-right-radius: var(--radius);
+}
+
+/* ---------------------------------------------------------
+   ICONO REDONDO CENTRADO ARRIBA
+--------------------------------------------------------- */
+.core-icon-bg {
+    position: absolute;
+    top: -16px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 36px;
+    height: 36px;
+    background: var(--color-light);
+    border-radius: 50%;
+    border: 2px solid gainsboro;
+    z-index: 2;
+}
+
+/* Icono */
+.core-icon {
+    position: absolute;
+    top: -9px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 22px;
+    height: 22px;
+    z-index: 3;
+}
+
+/* Título */
+.soft-card h3 {
+    font-size: 1.2rem;
+    padding-top: 18px;
+    /* para no chocar con el icono */
+}
+
+/* Texto */
+.soft-card p {
+    line-height: 1.35;
+    font-size: 1rem;
+}
+
+/* =========================================================
+   SOFT SKILLS — TABLET
+========================================================= */
+
+@media (min-width: 600px) {
+
+    .soft-skills {
+        padding: 60px 40px;
+    }
+
+    .soft-skills h2 {
+        text-align: left;
+    }
+}
+
+/* =========================================================
+   SOFT SKILLS — DESKTOP
+========================================================= */
+
+@media (min-width: 992px) {
+
+    .soft-skills {
+        padding: 80px 100px;
         gap: 40px;
     }
 
-    .habilidades-core-bloques {
-        display: grid;
-            gap: 15px;
-            width: 100%;
-            /* Distribución automática de los bloques */
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            /* Centra los bloques cuando sobran columnas */
-            justify-content: center;
+    .soft-skills h2 {
+        font-size: 2rem;
     }
 
-    .core-block {
-        text-align: center;
-        padding: 15px;
-        align-items: center;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
+    .soft-grid {
+        gap: 30px;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     }
 
-    .cart-b {
-            border: 2px solid gainsboro;
-            border-radius: 2px;
-            position: relative;
+    .soft-card {
+        padding: 30px 25px;
+    }
+}
+
+/* =========================================================
+   SOFT SKILLS — DESKTOP XL
+========================================================= */
+
+@media (min-width: 1400px) {
+    .soft-skills {
+        padding: 100px 150px;
     }
 
-   .cart-b::after {
-       content: "";
-       position: absolute;
-       top: -2px;
-       left: -1px;
-       width: 99.5%;
-       height: 5px;
-       background: var(--color-dark);
-       border: var(--color-dark) 3px solid;
-       border-top-left-radius: 3px;
-       border-top-right-radius: 3px;
-       z-index: 1;
-   }
-
-    .core-icon {
-        width: 25px;
-        height: 25px;
-        position: absolute;
-        top: -12px;
-        left: 50%;
-        transform: translateX(-50%);
-        z-index: 2;
+    .soft-grid {
+        gap: 35px;
     }
 
-    .core-icon-bg {
-        position: absolute;
-        top: -10px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 20px;
-        height: 18px;
-        background: white;
-        border-radius: 50%;
-        z-index: 2;
-    }
-/*
-    .core-block::after {
-        content: "";
-        position: absolute;
-        top: -2px;
-        left: -1px;
-        width: 99.5%;
-        height: 5px;
-        background: var(--color-dark);
-        border: var(--color-dark) 3px solid;
-        border-top-left-radius: 3px;
-        border-top-right-radius: 3px;
-        z-index: 1;
-    }
-*/
-
-        /* =============================
-                        STEP 5
-        ============================== */
-    .step5{
-        display: flex;
-        flex-direction: column;
-        justify-content: start;
-        gap: 50px;
-        padding-top:50px;
+    .soft-card {
+        max-width: 340px;
+        margin: 0 auto;
     }
 
-    .formaciones{
-        display: flex;
+    .soft-skills h2 {
+        font-size: 2.4rem;
+    }
+}
+
+/* =========================================================
+   EDUCATION — MOBILE FIRST
+========================================================= */
+
+.education {
+    padding: 40px 20px;
+    background: var(--color-gray);
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.education h2 {
+    text-align: center;
+    font-size: 1.8rem;
+}
+
+/* ---------------------------------------------------------
+   WRAPPER (las 2 secciones)
+--------------------------------------------------------- */
+.education-wrapper {
+    display: flex;
+    flex-direction: column;
+    /* Mobile: todo vertical */
+    gap: 40px;
+}
+
+/* =========================================================
+   COLUMNA IZQUIERDA — TIMELINE
+========================================================= */
+
+.education-academic h3 {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+}
+
+/* Timeline base */
+.timeline {
+    list-style: none;
+    padding-left: 25px;
+    border-left: 3px solid rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    position: relative;
+}
+
+/* Puntos del timeline */
+.timeline li {
+    position: relative;
+    padding-left: 15px;
+}
+
+.timeline li::before {
+    content: "";
+    position: absolute;
+    left: -34px;
+    top: 4px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: var(--color-dark);
+    border: 2px solid white;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Año */
+.timeline .year {
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+/* Carrera */
+.timeline .career {
+    font-size: 1rem;
+    margin-top: 4px;
+    opacity: 0.85;
+}
+
+/* =========================================================
+   COLUMNA DERECHA — CERTIFICACIONES
+========================================================= */
+
+.education-certifications h3 {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+}
+
+.education-certifications p {
+    margin-bottom: 20px;
+    opacity: 0.9;
+}
+
+/* GRID de imágenes */
+.cert-grid {
+    display: grid;
+    gap: 15px;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+}
+
+.cert-img {
+    width: 100%;
+    border-radius: var(--radius);
+    border: 2px solid gainsboro;
+    transition: transform .2s ease;
+}
+
+.cert-img:hover {
+    transform: scale(1.05);
+}
+
+/* =========================================================
+   EDUCATION — TABLET
+========================================================= */
+@media (min-width: 600px) {
+
+    .education {
+        padding: 60px 40px;
+    }
+
+    .education h2 {
+        text-align: left;
+    }
+}
+
+/* =========================================================
+   EDUCATION — DESKTOP
+========================================================= */
+@media (min-width: 992px) {
+
+    .education {
+        padding: 80px 100px;
+        gap: 40px;
+    }
+
+    .education-wrapper {
         flex-direction: row;
-        justify-content: center;
+        /* 2 columnas */
+        justify-content: space-between;
+        gap: 60px;
     }
 
-    .formacion-acadmica{
-        width: 48%;
+    .education-academic,
+    .education-certifications {
+        flex: 1;
     }
 
-    .education-list ul{
-        position: relative;
-        margin: 0;
-        padding: 0;
-        list-style: none;
+    .timeline {
         padding-left: 30px;
-        display: flex;
-        flex-direction: column;
-        gap: 40px;
     }
 
-    .education-list ul::before{
-        content: "";
-        position: absolute;
-        left:-3px;
-        top: 15px;
-        bottom: 18px;
-        width: 4px;
-        background-color: black;
-        opacity: 0.5;
+    .timeline li::before {
+        left: -38px;
     }
 
-    .education-list ul li{
-       position: relative;
-
+    .cert-grid {
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
     }
-    .education-list ul li::before {
-        content: "";
-        position: absolute;
-        left: -46px;
-        top: -1px;
-        display: block;
-        width: 30px;
-        height:30px;
-        border-radius: 50%;
-        background-color: var(--color-dark);
+}
+
+/* =========================================================
+   EDUCATION — DESKTOP XL
+========================================================= */
+@media (min-width: 1400px) {
+
+    .education {
+        padding: 100px 150px;
     }
 
-    .certificados{
-        width: 48%;
-        display: flex;
-        flex-direction: column;
-        justify-content: start;
+    .education-wrapper {
+        gap: 80px;
+    }
+
+    .timeline li::before {
+        width: 22px;
+        height: 22px;
+    }
+
+    .cert-grid {
         gap: 20px;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    }
+}
+
+/* =========================================================
+   PROJECTS — MOBILE FIRST
+========================================================= */
+.projects {
+    padding: 40px 20px;
+    background: var(--color-light);
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.projects h2 {
+    text-align: center;
+    font-size: 1.8rem;
+}
+
+/* ---------------------------------------------------------
+   GRID
+--------------------------------------------------------- */
+.projects-grid {
+    display: grid;
+    gap: 25px;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+/* ---------------------------------------------------------
+   PROJECT CARD
+--------------------------------------------------------- */
+.project-card {
+    background: white;
+    border-radius: var(--radius);
+    padding: 20px;
+    border: 2px solid gainsboro;
+    box-shadow: var(--shadow-sm);
+
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 5px 14px rgba(0, 0, 0, 0.12);
+}
+
+/* ---------------------------------------------------------
+   HEADER DEL PROYECTO
+--------------------------------------------------------- */
+.project-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Número */
+.project-number {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--color-dark);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: .9rem;
+}
+
+/* Título */
+.project-header h3 {
+    font-size: 1.2rem;
+    margin: 0;
+}
+
+/* Descripción */
+.project-description {
+    font-size: 1rem;
+    line-height: 1.35;
+    opacity: 0.9;
+}
+
+/* ---------------------------------------------------------
+   IMAGEN
+--------------------------------------------------------- */
+.project-img-wrapper {
+    width: 100%;
+    overflow: hidden;
+    border-radius: var(--radius);
+    border: 2px solid gainsboro;
+    max-height: 200px;
+}
+
+.project-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* evita que se distorsione */
+    transition: transform .3s ease;
+}
+
+.project-img-wrapper:hover .project-img {
+    transform: scale(1.05);
+}
+
+/* =========================================================
+   PROJECTS — TABLET
+========================================================= */
+@media (min-width: 600px) {
+
+    .projects {
+        padding: 60px 40px;
     }
 
-    .certification-colection{
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: flex-start;
-        gap: 10px;
+    .projects h2 {
+        text-align: left;
+    }
+}
+
+/* =========================================================
+   PROJECTS — DESKTOP
+========================================================= */
+@media (min-width: 992px) {
+
+    .projects {
+        padding: 80px 100px;
+        gap: 40px;
     }
 
-    .img-certification{
-        width: 250px;
+    .projects h2 {
+        font-size: 2rem;
     }
 
-          /* =============================
-                        STEP 6
-             ============================== */
-
-    .step6{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        gap: 50px;
+    .projects-grid {
+        gap: 30px;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     }
 
-    .project-block{
-        height: 275px;
-        width: 550px;
+    .project-card {
+        padding: 25px;
+    }
+
+    .project-img-wrapper {
+        max-height: 240px;
+    }
+}
+
+/* =========================================================
+   PROJECTS — DESKTOP XL
+========================================================= */
+@media (min-width: 1400px) {
+
+    .projects {
+        padding: 100px 150px;
+    }
+
+    .projects-grid {
+        gap: 35px;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    }
+
+    .project-card {
         padding: 30px;
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        gap: 25px;
     }
 
-    .project-block p {
-       line-height: 1.2em;
+    .project-img-wrapper {
+        max-height: 260px;
     }
 
-    .project-block a {
-       color: #2d2e34;
-       font-weight: 600;
-       font-size: 1.2em; 
+    .projects h2 {
+        font-size: 2.4rem;
     }
+}
 
-    .project-block::before{
-        content: counter(cardCounter);
-        counter-reset: cardCounter 1;
-        position: absolute;
-        top: -18px;
-        left: 245px;
-        background: var(--color-dark);
-        color: white;
-        width: 45px;
-        height: 45px;
-        border-radius: 50%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-weight: bold;
-        z-index: 2;
-    }
-    
-        /* =============================
-               STEP 7 --- footer
-        ============================== */
+/* =========================================================
+   FOOTER — MOBILE FIRST
+========================================================= */
 
+.footer {
+    background: var(--color-dark);
+    color: white;
+    padding: 50px 20px;
+    display: grid;
+    gap: 40px;
+}
+
+/* Branding */
+.footer-brand h1 {
+    font-size: 1.8rem;
+    margin-bottom: 5px;
+}
+
+.footer-brand p {
+    opacity: .8;
+}
+
+/* Contacto */
+.footer-contact h3,
+.footer-social h3,
+.footer-message h3 {
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+}
+
+.footer-contact ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-contact li {
+    margin-bottom: 8px;
+    opacity: .85;
+}
+
+/* Redes */
+.social-icons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.social-link {
+    padding: 8px 14px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: var(--radius);
+    text-decoration: none;
+    color: white;
+    font-size: .95rem;
+    transition: background .2s;
+}
+
+.social-link:hover {
+    background: rgba(255, 255, 255, 0.18);
+}
+
+/* Formulario */
+.footer-message form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.footer-message input,
+.footer-message textarea {
+    background: rgba(255, 255, 255, 0.15);
+    border: none;
+    padding: 10px;
+    border-radius: var(--radius);
+    color: white;
+    resize: none;
+}
+
+.footer-message input::placeholder,
+.footer-message textarea::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.footer-message button {
+    background: var(--color-primary);
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: var(--radius);
+    font-weight: bold;
+    cursor: pointer;
+    transition: background .2s;
+}
+
+.footer-message button:hover {
+    background: var(--color-primary-dark);
+}
+
+/* Copyright */
+.footer-copy {
+    text-align: center;
+    margin-top: 20px;
+    opacity: .7;
+    font-size: .9rem;
+}
+
+/* =========================================================
+   FOOTER — TABLET
+========================================================= */
+
+@media (min-width: 600px) {
     .footer {
-        background: #111;
-        color: #eee;
-        padding: 50px 20px;
-        display: flex;
-        flex-direction: column;
-        gap: 40px;
+        grid-template-columns: repeat(2, 1fr);
+        padding: 60px 40px;
     }
 
+    .footer-copy {
+        grid-column: span 2;
+    }
+}
 
+/* =========================================================
+   FOOTER — DESKTOP
+========================================================= */
 
-    .footer-content {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 40px;
-        max-width: 1200px;
-        margin: auto;
+@media (min-width: 992px) {
+    .footer {
+        grid-template-columns: repeat(4, 1fr);
+        padding: 80px 100px;
     }
 
-    .footer-section {
-        padding-top: 40px;
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
+    .footer-copy {
+        grid-column: span 4;
     }
+}
 
-    .footer-section h2 {
-        font-size: 1.2rem;
-        margin-bottom: 10px;
-        color: #fff;
+/* =========================================================
+   FOOTER — DESKTOP XL
+========================================================= */
+
+@media (min-width: 1400px) {
+    .footer {
+        padding: 100px 150px;
     }
-
-    .footer-section span {
-        font-size: 0.95rem;
-        opacity: 0.8;
-        color: white;
-    }
-
-    /* Redes */
-    .social-links {
-        display: flex;
-        flex-direction: column;
-        gap: 6px;
-    }
-
-    .social-links a {
-        color: #eee;
-        text-decoration: none;
-        opacity: 0.8;
-        transition: 0.3s;
-    }
-
-    .social-links a:hover {
-        opacity: 1;
-    }
-
-    /* Formulario */
-    .footer-form {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .footer-form input,
-    .footer-form textarea {
-        width: 100%;
-        padding: 10px;
-        border: none;
-        border-radius: 2px;
-        resize: none;
-        opacity: 0.8;
-        transition: opacity 0.5s ease;
-    }
-
-    .footer-form input:focus,
-    .footer-form textarea:focus{
-        opacity: 1;
-        outline: none;
-    }
-
-    .footer-form button {
-        padding: 10px;
-        background: #00aaff;
-        color: #fff;
-        border: none;
-        border-radius: 6px;
-        cursor: pointer;
-        font-weight: bold;
-        transition: 0.3s;
-    }
-
-    .footer-form button:hover {
-        background: #0088cc;
-    }
-
-    /* Derechos Reservados */
-    .footer-rights {
-        text-align: center;
-        font-size: 0.85rem;
-        opacity: 0.6;
-    }
-
-}   
-
-
-
-
-/*-------------------------------------------------------------*/
-
-
-
-
+}
